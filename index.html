@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="assets/css/vis.min.css" rel="stylesheet" text="text/css" />
+  <link href="assets/css/vis.css" rel="stylesheet" text="text/css" />
+  <link href="assets/css/index.css" rel="stylesheet" text="text/css" />
+  <script src="assets/js/vis.min.js"></script>
+</head>
+
+<body>
+
+  <div id="myFormContainer">
+
+    <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
+
+      <div name="header" class="header" id="header">
+        Agency Name: <input type="text" name="agencyName" id="agencyName" /><br />
+        Agency Address: <input type="text" name="agencyAddress" id="agencyAddress" /><br />
+        Case #: <input type="number" name="caseNumber" id="caseNumber" /><br />
+        Item #: <input type="number" name="itemNumber" id="itemNumber" /><br />
+        Time Removed: <input type="datetime-local" name="timeRemoved" id="timeRemoved" /><br />
+        Time Returned: <input type="datetime-local" name="timeReturned" id="timeReturned" />
+        Investigator: <input type="text" name="investigator" id="investigator" /><br />
+      </div>
+
+
+      <input type="submit" id="submitbtn" data-inline="true" value="Submit">
+    </form>
+  </div>
+
+  <div id="visualization"></div>
+  <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+<script type="text/javascript" src="assets/js/timeline.js"></script>
+
+</html>

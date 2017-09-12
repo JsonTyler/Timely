@@ -1,0 +1,17 @@
+New:
+☐ Figure out how to add break lines to title
+☐ Add colors
+☐ Add images
+☐ Add links
+
+Remember:
+☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+  ✔ Added correct formatted date to timeline @done(2017-09-06 02:57)
+  ✔ Removed any javascript from index.html @done(2017-09-05 20:07)
+  ✔ Separate into separate logic files for javascript @done(2017-09-05 20:54)
+  ✔ Add comments to javascript files @done(2017-09-05 20:54)
+  ✔ Turn editable timeline off  @done(2017-09-05 20:55)
