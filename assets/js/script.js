@@ -20,7 +20,7 @@ var result = str.link("https://www.w3schools.com");
   function loadData(form) {
 
     /*
-    Defining dt variable to be used as variable for date methods
+    Defining intitial/check variables to be used as variable for date methods
      */
     var initial = new Date(form.timeRemoved.value);
     var check = initial.getMonth();
@@ -55,10 +55,10 @@ var result = str.link("https://www.w3schools.com");
     var data = [
       {
         "id": "caseNumber",
-        "content": month + " " + initial.getDate() + ", " + initial.getFullYear() + "-" + form.investigator.value,
+        "content": "Date: " + month + " " + initial.getDate() + ", " + initial.getFullYear() + '<br><a href="http://visjs.org">' + "Case #: " + form.caseNumber.value,
         "start": form.timeRemoved.value,
         "end": form.timeReturned.value,
-        "title": form.caseNumber.value\n\ + form.agencyName.value
+        "title": "Agency: " + form.agencyName.value + '<br>' + "Address: " + form.agencyAddress.value + "<br>" + "Item #: " + form.itemNumber.value
       }
     ];
     items.clear();

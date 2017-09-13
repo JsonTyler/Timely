@@ -1,6 +1,8 @@
 New:
-☐ Figure out how to add break lines to title
-☐ Add colors
+✔ Figure out how to add break lines to title (using "<br>") @done(2017-09-12 10:48)
+☐ Add correct format for hover over of form information
+☐ Add styling for form on codepen.io
+☐ Add colors (How to colorcode? By type of case or some other way?)
 ☐ Add images
 ☐ Add links
 

@@ -19,11 +19,31 @@
       <div name="header" class="header" id="header">
         Agency Name: <input type="text" name="agencyName" id="agencyName" /><br />
         Agency Address: <input type="text" name="agencyAddress" id="agencyAddress" /><br />
-        Case #: <input type="number" name="caseNumber" id="caseNumber" /><br />
-        Item #: <input type="number" name="itemNumber" id="itemNumber" /><br />
+        <!---->
+
+        Case #: <input type="number" name="caseNumber" id="caseNumber" />
+        Investigating Organization: <input type="text" name="investigatingOrganization" id="investigatingOrganization" /><br />
+        Investigator: <input type="text" name="investigator" id="investigator" /><br />
+        Nature of Case: <select name="natureOfCase">
+          <option value="criminal">Public Sector: Criminal</option>
+          <option value="criminal">Public Sector: Civil</option>
+          <option value="private">Private Sector: Criminal</option>
+          <option value="private">Private Sector: Civil</option>
+        </select>
+        <br />
+        Location evidence was found: <input type="text" id="locationEvidenceWasFound" />
+        <!---->
+
+        Item #: <input type="number" name="itemNumber" id="itemNumber" />
+        Description of evidence:
+        <!---->
+
+        Recovered by:
+        Placed in locker:
+
         Time Removed: <input type="datetime-local" name="timeRemoved" id="timeRemoved" /><br />
         Time Returned: <input type="datetime-local" name="timeReturned" id="timeReturned" />
-        Investigator: <input type="text" name="investigator" id="investigator" /><br />
+
       </div>
 
 
