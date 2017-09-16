@@ -1,5 +1,112 @@
+body {
+  background-color: rgb(57, 58, 64);
+  color: #66c2a5;
+  font-size: 20px;
+}
+
 textarea {
   height: 200px;
   width: 400px;
+}
 
+#visualization{
+  padding-top: 190px;
+  padding-left: 8px;
+  padding-right: 8px;
+  float: center;
+}
+
+/*Styling Form*/
+
+div.wrap {
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  float: left;
+}
+
+#myForm {
+  height: 500px;
+  width: 500px;
+  align-items: center;
+  padding-left: 10px;
+}
+
+input[type=text]:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px black inset;
+    -webkit-text-fill-color: white !important;
+}
+
+
+input[type=text]:focus {
+
+    background-color:#66c2a5 ;
+
+}
+
+input[type=text] {
+  width: 50%;
+  text-align: center;
+  padding: 15px;
+  padding-left: 37px;
+  border-color: #66c2a5;
+  border-style: solid;
+  border-left-width: medium;
+  border-right-width: medium;
+  border-top-width: thin;
+  border-bottom-width: thin;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+}
+
+input[type="datetime-local"]{
+
+  background-color: black;
+  color: grey;
+  border-color: #66c2a5;
+  border-style: solid;
+  border-left-width: medium;
+  border-right-width: medium;
+  border-top-width: thin;
+  border-bottom-width: thin;
+  outline: none;
+  padding-left: 82px;
+}
+input[type="datetime-local"]::-webkit-clear-button {
+    font-size: 20px;
+    height: 30px;
+    position: relative;
+
+  }
+ input[type="datetime-local"]::-webkit-inner-spin-button {
+    height: 28px;
+  }
+
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator{
+    font-size: 15px;
+   }
+
+
+
+/*Styling Timeline*/
+.vis-timeline {
+  border: 1.3px solid #66c2a5;
+  background: black;
+  color: #66c2a5;
+}
+
+.vis-item {
+  color: #66c2a5;
+  font-style:italic;
+  border-color: #fff;
+  background: #66c2a5;
+  opacity: .5;
+}
+
+.camera{
+  display:block;
+  margin: auto;
+  width: 40%;
 }

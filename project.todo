@@ -1,10 +1,9 @@
 New:
-✔ Figure out how to add break lines to title (using "<br>") @done(2017-09-12 10:48)
 ☐ Add correct format for hover over of form information
 ☐ Add styling for form on codepen.io
-☐ Add colors (How to colorcode? By type of case or some other way?)
-☐ Add images
-☐ Add links
+☐ Add image uploader in gap
+☐ Add log in (maybe)
+☐ Add database (maybe)
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -12,6 +11,17 @@ Remember:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Add colors (grey and teal color scheme) @done(2017-09-15 19:52)
+  ✔ Changed border-width on left and right to medium and top and bottom to thin @done(2017-09-15 19:51)
+  ✔ Fixed border on left side which was faded @done(2017-09-15 19:42)
+  ✔ Figure out how to add break lines to title (using "<br>") @done(2017-09-12 10:48)
+  ✔ Position form @done(2017-09-15 18:25)
+  ✔ Position timeline @done(2017-09-15 18:25)
+  ✔ Correct autofill pale yellow color to black @done(2017-09-15 18:25)
+  ✔ Correct autofill text color to white @done(2017-09-15 18:25)
+  ✔ Add placeholders @done(2017-09-15 18:25)
+  ✔ Add images @done(2017-09-13 00:41)
+  ✔ Add links @done(2017-09-13 00:41)
   ✔ Added correct formatted date to timeline @done(2017-09-06 02:57)
   ✔ Removed any javascript from index.html @done(2017-09-05 20:07)
   ✔ Separate into separate logic files for javascript @done(2017-09-05 20:54)

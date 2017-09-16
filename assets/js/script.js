@@ -55,7 +55,8 @@ var result = str.link("https://www.w3schools.com");
     var data = [
       {
         "id": "caseNumber",
-        "content": "Date: " + month + " " + initial.getDate() + ", " + initial.getFullYear() + '<br><a href="http://visjs.org">' + "Case #: " + form.caseNumber.value,
+        "content": "Date: " + month + " " + initial.getDate() + ", " + initial.getFullYear() + '<br><img class="camera" src="assets/css/img/camera.png" style="width:48px; height: 48px;">' + "Case #: " + form.caseNumber.value,
+        "className": "green",
         "start": form.timeRemoved.value,
         "end": form.timeReturned.value,
         "title": "Agency: " + form.agencyName.value + '<br>' + "Address: " + form.agencyAddress.value + "<br>" + "Item #: " + form.itemNumber.value

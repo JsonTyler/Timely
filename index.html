@@ -12,46 +12,40 @@
 
 <body>
 
-  <div id="myFormContainer">
+      <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
-    <form id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
-      <div name="header" class="header" id="header">
-        Agency Name: <input type="text" name="agencyName" id="agencyName" /><br />
-        Agency Address: <input type="text" name="agencyAddress" id="agencyAddress" /><br />
+        <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: "/>
+        <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: "/>
         <!---->
 
-        Case #: <input type="number" name="caseNumber" id="caseNumber" />
-        Investigating Organization: <input type="text" name="investigatingOrganization" id="investigatingOrganization" /><br />
-        Investigator: <input type="text" name="investigator" id="investigator" /><br />
-        Nature of Case: <select name="natureOfCase">
-          <option value="criminal">Public Sector: Criminal</option>
-          <option value="criminal">Public Sector: Civil</option>
-          <option value="private">Private Sector: Criminal</option>
-          <option value="private">Private Sector: Civil</option>
-        </select>
-        <br />
-        Location evidence was found: <input type="text" id="locationEvidenceWasFound" />
+        <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: "/>
+        <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
+        <input type="text" name="investigator" id="investigator" placeholder="Investigator: "/>
+        <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: "/>
+        <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: "/>
         <!---->
 
-        Item #: <input type="number" name="itemNumber" id="itemNumber" />
-        Description of evidence:
+        <input type="text" name="itemNumber" id="itemNumber" placeholder="Description of evidence: "/>
         <!---->
 
-        Recovered by:
-        Placed in locker:
+        <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recoverd by: "/>
+        <input type="text" name="itemNumber" id="itemNumber" placeholder="Placed in locker? "/><br />
 
-        Time Removed: <input type="datetime-local" name="timeRemoved" id="timeRemoved" /><br />
-        Time Returned: <input type="datetime-local" name="timeReturned" id="timeReturned" />
-
-      </div>
+        <div class="moveOver">
+          Time in: <br />
+          <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved"/> <br />
+          Time out: <br />
+          <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" />
+        </div>
 
 
       <input type="submit" id="submitbtn" data-inline="true" value="Submit">
     </form>
-  </div>
 
-  <div id="visualization"></div>
+    <div id="visualization"></div>
+
+
   <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 <script type="text/javascript" src="assets/js/timeline.js"></script>
