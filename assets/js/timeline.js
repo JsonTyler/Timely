@@ -22,6 +22,9 @@ var container = document.getElementById('visualization');
 Configuration for vis timeline.
  */
 var options = {
+  autoResize: true,
+  width: '90%',
+  height: '150px',
   editable: false
 };
 

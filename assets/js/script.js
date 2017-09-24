@@ -2,8 +2,6 @@
   This is where ALL javascript for the project goes.
   Initialized timeline and it's options are in @timeline.js
  */
-
-
 /*
   Creating a button for user to load form with.
  */
@@ -68,4 +66,6 @@ var result = str.link("https://www.w3schools.com");
   };
   btnLoad.onclick = loadData;
 
-  loadData();
+
+      loadData();
+  

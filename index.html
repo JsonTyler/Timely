@@ -7,47 +7,106 @@
   <link href="assets/css/vis.min.css" rel="stylesheet" text="text/css" />
   <link href="assets/css/vis.css" rel="stylesheet" text="text/css" />
   <link href="assets/css/index.css" rel="stylesheet" text="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/js/vis.min.js"></script>
 </head>
 
 <body>
 
-      <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
+  <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
 
-        <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: "/>
-        <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: "/>
-        <!---->
+    <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: " />
+    <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: " />
+    <!---->
 
-        <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: "/>
-        <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
-        <input type="text" name="investigator" id="investigator" placeholder="Investigator: "/>
-        <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: "/>
-        <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: "/>
-        <!---->
+    <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
+    <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
+    <input type="text" name="investigator" id="investigator" placeholder="Investigator: " />
+    <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
+    <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: " />
+    <!---->
 
-        <input type="text" name="itemNumber" id="itemNumber" placeholder="Description of evidence: "/>
-        <!---->
+    <input type="text" name="itemNumber" id="itemNumber" placeholder="Description of evidence: " />
+    <!---->
 
-        <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recoverd by: "/>
-        <input type="text" name="itemNumber" id="itemNumber" placeholder="Placed in locker? "/><br />
+    <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recovered by: " />
+    <input type="text" name="itemNumber" id="itemNumber" placeholder="Placed in locker? " /><br />
 
-        <div class="moveOver">
-          Time in: <br />
-          <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved"/> <br />
-          Time out: <br />
-          <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" />
-        </div>
+    <div class="moveOver">
+      Time in: <br />
+      <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br /> Time out: <br />
+      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" />
+    </div>
+
+    <div id="space">
+      <input type="submit" id="submitbtn" data-inline="true" value="Submit"><br />
+      <input id="loadStuff" type="button" value="Load" /><br />
+      <button onclick="clearStorage()">Reset</button>
+    </div>
+  </form>
+
+    <div id='box'></div>
+    <p id='result'></p>
 
 
-      <input type="submit" id="submitbtn" data-inline="true" value="Submit">
-    </form>
 
-    <div id="visualization"></div>
+  <div id="visualization"></div>
+  <script>
+    /*function getAgencyName(){
+          var agencyName = document.getElementById('agencyName').value;
+          var result = document.getElementById('result');
+
+          if (agencyName.length < 1) {
+            result.textContent = 'You cant leave ths field blank';
+          } else {
+            result.textContent = 'Agency name: ' + agencyName;
+          }
+        }
+
+        var submitbtn = document.getElementById('submitbtn');
+        submitbtn.addEventListener('click', getAgencyName, false);*/
+
+    $(document).on("click", ":submit", function(e) {
+      var caseNumber = ($('#caseNumber').val());
+      var investigator = ($('#investigator').val());
+      var timeRemoved = ($('#timeRemoved').val());
+      var timeReturned = ($('#timeReturned').val());
+
+      var stuff = 'Case #: ' + caseNumber + " ⇨ "
+                + 'Investigator: ' + investigator + " ⇨ "
+                + 'Time Removed: ' + timeRemoved + " ⇨ "
+                + 'Time Returned: ' + timeReturned + '<br />';
+
+      // Load agencyName
+      var forensicNames = JSON.parse(localStorage.getItem('ForensicStuff'));
+      if (forensicNames) {
+        // If the item exists in local storage push the new agency name to the array and and save
+        //agencyNames.push(stuff1);
+        forensicNames.push(stuff);
+        localStorage.setItem('ForensicStuff', JSON.stringify(forensicNames));
+      } else {
+        // If the item doesn't exist in local storage set the item to a new array containing new email address
+        localStorage.setItem('ForensicStuff', JSON.stringify([stuff]));
+        //localStorage.setItem('AgencyStuff', JSON.stringify([stuff2]));
+      }
+    });
+
+    $(document).on("click", "#loadStuff", function(e) {
+      var result = (JSON.parse(localStorage.getItem('ForensicStuff')));
+      document.getElementById('result').innerHTML=result;
+    });
+
+    function clearStorage(){
+      localStorage.clear();
+    }
+  </script>
 
 
-  <script type="text/javascript" src="assets/js/script.js"></script>
+
+
 </body>
 <script type="text/javascript" src="assets/js/timeline.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
 
 </html>

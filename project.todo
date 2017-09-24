@@ -1,9 +1,8 @@
 New:
-☐ Add correct format for hover over of form information
-☐ Add styling for form on codepen.io
-☐ Add image uploader in gap
-☐ Add log in (maybe)
-☐ Add database (maybe)
+
+☐ Choose format to show in the boxes
+☐ Choose format to show on hover
+☐ Get local storage item in correct format and then input into timeline?
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -11,6 +10,12 @@ Remember:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Added box for output with local storage @done(2017-09-24 00:58)
+  ✔ New Layout @done(2017-09-24 00:57)
+  ✔ Add correct styling on buttons and with hover@done(2017-09-24 00:57)
+
+
+  ✔ Add styling for form on codepen.io @done(2017-09-16 21:25)
   ✔ Add colors (grey and teal color scheme) @done(2017-09-15 19:52)
   ✔ Changed border-width on left and right to medium and top and bottom to thin @done(2017-09-15 19:51)
   ✔ Fixed border on left side which was faded @done(2017-09-15 19:42)
