@@ -77,9 +77,9 @@
                 + 'Investigator: ' + investigator + " ⇨ "
                 + 'Time Removed: ' + timeRemoved + " ⇨ "
                 + 'Time Returned: ' + timeReturned + '<br />';
-
+      console.log(stuff);
       // Load agencyName
-      var forensicNames = JSON.parse(localStorage.getItem('ForensicStuff'));
+      var forensicNames = JSON.parse(localStorage.getItem('stuff'));
       if (forensicNames) {
         // If the item exists in local storage push the new agency name to the array and and save
         //agencyNames.push(stuff1);
@@ -90,6 +90,11 @@
         localStorage.setItem('ForensicStuff', JSON.stringify([stuff]));
         //localStorage.setItem('AgencyStuff', JSON.stringify([stuff2]));
       }
+
+      console.log(forensicNames);
+      console.log([stuff]);
+      console.log(ForensicStuff);
+
     });
 
     $(document).on("click", "#loadStuff", function(e) {

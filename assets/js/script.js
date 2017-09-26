@@ -18,7 +18,8 @@ var result = str.link("https://www.w3schools.com");
   function loadData(form) {
 
     /*
-    Defining intitial/check variables to be used as variable for date methods
+    Defining intitial/check variables to be used as variable for date methods.
+    Defining month variable for the if loop.
      */
     var initial = new Date(form.timeRemoved.value);
     var check = initial.getMonth();
@@ -68,4 +69,3 @@ var result = str.link("https://www.w3schools.com");
 
 
       loadData();
-  
