@@ -7,8 +7,7 @@
  */
 var txtData = document.getElementById('data');
 var btnLoad = document.getElementById('load');
-var str = "Free Web Building Tutorials!";
-var result = str.link("https://www.w3schools.com");
+
 
 /*
   The function 'loadData' loads the data from the html 'form' object into
@@ -58,7 +57,7 @@ var result = str.link("https://www.w3schools.com");
         "className": "green",
         "start": form.timeRemoved.value,
         "end": form.timeReturned.value,
-        "title": "Agency: " + form.agencyName.value + '<br>' + "Address: " + form.agencyAddress.value + "<br>" + "Item #: " + form.itemNumber.value
+        "title": "Agency: " + form.agencyName.value + '<br>' + "Address: " + form.agencyAddress.value + "<br>" + "Item #: " + form.itemDescription.value
       }
     ];
     items.clear();

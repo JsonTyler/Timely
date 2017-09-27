@@ -1,9 +1,8 @@
 New:
 
-☐ Need to parse into JSON the local storage string
-☐ Get local storage item in correct format and then input into timeline?
 ☐ Choose format to show in the boxes in timeline
 ☐ Choose format to show on hover for timeline
+☐ Get items from local storage to display on timeline
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -11,6 +10,7 @@ Remember:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Display local storage in table in correct format @done(2017-09-26 23:24)
   ✔ Added box for output with local storage @done(2017-09-24 00:58)
   ✔ New Layout @done(2017-09-24 00:57)
   ✔ Add correct styling on buttons and with hover@done(2017-09-24 00:57)
