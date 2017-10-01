@@ -16,44 +16,10 @@ var btnLoad = document.getElementById('load');
  */
   function loadData(form) {
 
-    /*
-    Defining intitial/check variables to be used as variable for date methods.
-    Defining month variable for the if loop.
-     */
-    var initial = new Date(form.timeRemoved.value);
-    var check = initial.getMonth();
-    var month;
-
-    if (check == 0) {
-      month = "January";
-    } else if (check == 1){
-      month = "February";
-    } else if (check == 2){
-      month = "March";
-    }  else if (check == 3){
-      month = "April";
-    } else if (check == 4){
-      month = "May";
-    } else if (check == 5){
-      month = "June";
-    } else if (check == 6){
-      month = "July";
-    } else if (check == 7){
-      month = "August";
-    } else if (check == 8){
-      month = "September";
-    } else if (check == 9){
-      month = "October";
-    } else if (check == 10){
-      month = "November";
-    } else {
-      month = "December";
-    };
-
     var data = [
       {
-        "id": "caseNumber",
-        "content": "Date: " + month + " " + initial.getDate() + ", " + initial.getFullYear() + '<br><img class="camera" src="assets/css/img/camera.png" style="width:48px; height: 48px;">' + "Case #: " + form.caseNumber.value,
+        "id": form.caseNumber,
+        "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
         "className": "green",
         "start": form.timeRemoved.value,
         "end": form.timeReturned.value,

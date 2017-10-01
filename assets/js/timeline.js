@@ -23,9 +23,11 @@ Configuration for vis timeline.
  */
 var options = {
   autoResize: true,
-  width: '90%',
+  width: '100%',
   height: '185px',
-  editable: false
+  editable: false,
+  moveable: true,
+  zoomable: true
 };
 
 /*

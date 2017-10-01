@@ -9,6 +9,7 @@
   <link href="assets/css/index.css" rel="stylesheet" text="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/js/vis.min.js"></script>
+
 </head>
 
 <body>
@@ -21,7 +22,8 @@
     <!---->
 
     <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
-    <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
+    <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: "
+    />
     <input type="text" name="investigator" id="investigator" placeholder="Investigator: " />
     <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
     <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: " />
@@ -36,120 +38,133 @@
       Time in: <br />
       <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
       Time out: <br />
-      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" />
+      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" /> <br />
     </div>
 
     <div id="space">
-      <input type="submit" id="submitbtn" data-inline="true" value="Submit"><br />
-      <input onclick = "submitForm()" id="loadStuff" type="button" value="Load" /><br />
+      <input onclick="submitForm()" id="loadStuff" type="button" value="Load" /><br />
+      <input type="button" value="Populate" onClick="window.location.reload()"><br />
       <button onclick="clearStorage()">Reset</button>
     </div>
   </form>
 
-    <div id='box'>
+  <div id='box'>
 
-    </div>
+  </div>
 
-    <div id='result'>
-        <table id="myTable" border="1"><thead>History of Timeline:</thead>
-          <th> Case # </th><th> Investigator </th><th> Time In </th><th> Time Out </th><th> Item Description </th><tbody id="tableBody"></tbody>
-        </table>
-    </div>
-    <script>
-      var table = document.getElementById("tableBody");
-      toDoArray = [];
-
-      window.addTaskToTable = function addTaskToTable(obj) {
-        var row = table.insertRow(0);
-        var cellCaseNumber = row.insertCell(0);
-        var cellInvestigator = row.insertCell(1);
-        var cellTimeRemoved = row.insertCell(2);
-        var cellTimeReturned = row.insertCell(3);
-        var cellItemDescription = row.insertCell(4);
-        cellCaseNumber.innerHTML = obj.caseNumber;
-        cellInvestigator.innerHTML = obj.investigator;
-        cellTimeRemoved.innerHTML = obj.timeRemoved;
-        cellTimeReturned.innerHTML = obj.timeReturned;
-        cellItemDescription.innerHTML = obj.itemDescription;
-        addToStorage();
-      }
-
-      window.submitForm = function submitForm() {
-        var caseNumber = document.getElementById("caseNumber").value;
-        var investigator = document.getElementById("investigator").value;
-        var timeRemoved = document.getElementById("timeRemoved").value;
-        var timeReturned = document.getElementById("timeReturned").value;
-        var itemDescription = document.getElementById("itemDescription").value;
-        var taskSomething = getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription);
-        toDoArray.push(taskSomething);
-        addTaskToTable(taskSomething);
-      };
-
-      window.getTaskObj = function getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription) {
-        var taskObject = {
-          caseNumber: caseNumber,
-          investigator: investigator,
-          timeRemoved: timeRemoved,
-          timeReturned: timeReturned,
-          itemDescription: itemDescription
-        };
-        return taskObject;
-      }
-
-      window.addToStorage = function addToStorage() {
-        var storedArray = JSON.stringify(toDoArray);
-        localStorage.setItem("task", storedArray);
-      }
-
-      window.buildTable = function buildTable() {
-        var retrievedTaskObject = localStorage.getItem("task");
-        var parsedObject = JSON.parse(retrievedTaskObject);
-          for (i = 0; i < parsedObject.length; i++) {
-            toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].investigator, parsedObject[i].timeRemoved, parsedObject[i].timeReturned, parsedObject[i].itemDescription));
-            addTaskToTable(parsedObject[i]);
-          }
-        }
-
-      buildTable();
-
-      /*
-      Functionality function for reset button
-       */
-       function clearStorage(){
-         localStorage.clear();
-       }
-    </script>
+  <div id='result'>
+    <table id="myTable" border="1">
+      <thead>History of Timeline:</thead>
+      <th> Case # </th>
+      <th> Investigator </th>
+      <th> Time In </th>
+      <th> Time Out </th>
+      <th> Item Description </th>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
 
 
   <div id="visualization"></div>
-  <script>
-  /*
-      USE THIS SOMEHOW TO CREATE AN OBJECT TO LOAD MULTIPE INTO VIS AT THE SAME TIME
-
-      var caseNumber = ($('#caseNumber').val());
-      var investigator = ($('#investigator').val());
-      var timeRemoved = ($('#timeRemoved').val());
-      var timeReturned = ($('#timeReturned').val());
-      var stuff = {caseNumber: caseNumber, investigator: investigator, };
-      // Load agencyName
-      localStorage.setItem("stuff", JSON.stringify(stuff));
-      var stuff2 = localStorage.getItem("stuff");
-      stuff = JSON.parse(stuff2);
-      console.log(stuff2);
-      var test = stuff["caseNumber"];
-      var test2 = stuff["investigator"];
-      console.log(test, test2);
-
-    });
-  */
-
-  </script>
-
-
-
-
 </body>
+
 <script type="text/javascript" src="assets/js/timeline.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
+<script>
+  var table = document.getElementById("tableBody");
+  toDoArray = [];
+
+  window.addTaskToTable = function addTaskToTable(obj) {
+    var row = table.insertRow(0);
+    var cellCaseNumber = row.insertCell(0);
+    var cellInvestigator = row.insertCell(1);
+    var cellTimeRemoved = row.insertCell(2);
+    var cellTimeReturned = row.insertCell(3);
+    var cellItemDescription = row.insertCell(4);
+    cellCaseNumber.innerHTML = obj.caseNumber;
+    cellInvestigator.innerHTML = obj.investigator;
+    cellTimeRemoved.innerHTML = obj.timeRemoved;
+    cellTimeReturned.innerHTML = obj.timeReturned;
+    cellItemDescription.innerHTML = obj.itemDescription;
+    addToStorage();
+  }
+
+  window.submitForm = function submitForm() {
+    var caseNumber = document.getElementById("caseNumber").value;
+    var investigator = document.getElementById("investigator").value;
+    var timeRemoved = document.getElementById("timeRemoved").value;
+    var timeReturned = document.getElementById("timeReturned").value;
+    var itemDescription = document.getElementById("itemDescription").value;
+    var taskSomething = getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription);
+    toDoArray.push(taskSomething);
+    addTaskToTable(taskSomething);
+  };
+
+  window.getTaskObj = function getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription) {
+    var taskObject = {
+      caseNumber: caseNumber,
+      investigator: investigator,
+      timeRemoved: timeRemoved,
+      timeReturned: timeReturned,
+      itemDescription: itemDescription
+    };
+    return taskObject;
+  }
+
+  window.addToStorage = function addToStorage() {
+    var storedArray = JSON.stringify(toDoArray);
+    localStorage.setItem("task", storedArray);
+  }
+
+  window.buildTable = function buildTable(parsedObject) {
+
+    if (parsedObject != null) {
+      for (i = 0; i < parsedObject.length; i++) {
+        toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].investigator, parsedObject[i].timeRemoved, parsedObject[i].timeReturned, parsedObject[i].itemDescription));
+        addTaskToTable(parsedObject[i]);
+      }
+    }
+  }
+
+
+  function loadInitData() {
+    var retrievedTaskObject = localStorage.getItem("task");
+    var parsedObject = JSON.parse(retrievedTaskObject);
+    buildTable(parsedObject);
+    loadInitialTimelineData(parsedObject);
+  }
+
+  function loadInitialTimelineData(parsedObject) {
+    var data = [];
+    console.log( parsedObject);
+    if (parsedObject != null) {
+      for (i = 0; i < parsedObject.length; i++) {
+        data.push(
+          {
+            "id": parsedObject[i].caseNumber,
+            "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
+            "className": "green",
+            "start": parsedObject[i].timeRemoved,
+            "end": parsedObject[i].timeReturned,
+            "title": "Agency: SOMETITLE"
+          }
+        )
+      }
+    }
+
+    items.clear();
+    items.add(data);
+    timeline.fit();
+  }
+
+  /*
+  Functionality function for reset button
+   */
+  function clearStorage() {
+    localStorage.clear();
+  }
+
+  loadInitData()
+</script>
 
 </html>
