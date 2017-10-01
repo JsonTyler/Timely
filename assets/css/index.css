@@ -78,12 +78,13 @@ input[type=submit]:focus {
 input[type=button]:focus {
 
     background-color:#66c2a5 ;
-
+    color: white;
 }
 
 button:focus {
 
     background-color:#66c2a5 ;
+    color: white;
 
 }
 
@@ -103,23 +104,10 @@ input[type=text] {
   color: white;
 }
 
-input[type=submit] {
-  width: 60.4%;
-  text-align: center;
-  margin-top: 15px;
-  border-color: #66c2a5;
-  border-style: solid;
-  border-left-width: medium;
-  border-right-width: medium;
-  border-top-width: thin;
-  border-bottom-width: thin;
-  font-size: 20px;
-  background-color: black;
-  color: white;
-}
 
 input[type=button] {
   width: 60.4%;
+  height: 40.5px;
   text-align: center;
   border-color: #66c2a5;
   border-style: solid;
@@ -129,11 +117,12 @@ input[type=button] {
   border-bottom-width: thin;
   font-size: 20px;
   background-color: black;
-  color: white;
+  color: grey;
 }
 
 button {
   width: 60.4%;
+  height: 40.5px;
   text-align: center;
   border-color: #66c2a5;
   border-style: solid;
@@ -143,7 +132,7 @@ button {
   border-bottom-width: thin;
   font-size: 20px;
   background-color: black;
-  color: white;
+  color: grey;
 }
 
 input[type="datetime-local"]{
@@ -173,7 +162,9 @@ input[type="datetime-local"]::-webkit-clear-button {
     font-size: 15px;
    }
 
-
+.space {
+  margin-top: 19px;
+}
 
 /*Styling Timeline*/
 .vis-timeline {
@@ -183,12 +174,26 @@ input[type="datetime-local"]::-webkit-clear-button {
   border-top-width: thin;
   background: black;
   color: #66c2a5;
+  font-size: 15px;
 }
 
 .vis-item {
   color: #fff;
   font-style:bold;
+  font-size: 10px;
   border-color: #fff;
   background: #66c2a5;
   opacity: .75;
+}
+
+.vis-item .vis-item-overflow {
+  overflow: visible;
+}
+
+.vis-time-axis .vis-grid.vis-minor {
+  border-color: #66c2a5;
+}
+
+.vis-time-axis .vis-grid.vis-major {
+  border-color: grey;
 }

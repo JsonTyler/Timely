@@ -23,11 +23,15 @@ Configuration for vis timeline.
  */
 var options = {
   autoResize: true,
-  width: '100%',
+  width: '91%',
   height: '185px',
   editable: false,
   moveable: true,
-  zoomable: true
+  zoomable: true,
+  min: new Date(2017, 0, 1),             //Lower limit of visible range
+  max: new Date(2018, 0, 1),             //Upper limit of visible range
+  zoomMin: 1000 * 60 * 60 * 24,           //One day in milliseconds
+  zoomMax: 1000 * 60 * 60 * 24 * 31 * 3  //Around 3 months in milliseconds
 };
 
 /*
