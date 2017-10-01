@@ -1,6 +1,5 @@
 New:
 
-☐ Added overflow function for smaller date segments
 ☐ Try to change date format
 ☐ Choose format to show in the boxes in timeline
 ☐ Choose format to show on hover for timeline
@@ -11,6 +10,13 @@ Remember:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+
+  Week Four:
+  ✔ Added vertical scrolling for result table @done(2017-10-01 16:43)
+
+
+  Week Three:
+  ✔ Added overflow function for smaller date segments @done(2017-09-30 23:10)
   ✔ Change font in buttons to grey default and white on focus @done(2017-09-30 22:41)
   ✔ Change lines in timeline to teal for better readability of font @done(2017-09-30 22:37)
   ✔ Add space between time out and load @done(2017-09-30 22:36)
@@ -21,6 +27,7 @@ Archive:
   ✔ Add correct styling on buttons and with hover@done(2017-09-24 00:57)
 
 
+  Week One and Week Two:
   ✔ Add styling for form on codepen.io @done(2017-09-16 21:25)
   ✔ Add colors (grey and teal color scheme) @done(2017-09-15 19:52)
   ✔ Changed border-width on left and right to medium and top and bottom to thin @done(2017-09-15 19:51)

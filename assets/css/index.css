@@ -28,7 +28,7 @@ body {
   word-wrap: break-word;
   top: 248px;
   left: 471px;
-  overflow: hidden;
+  overflow-y: auto;
   text-align: justify;
 }
 
