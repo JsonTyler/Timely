@@ -1,6 +1,5 @@
 New:
 
-☐ Try to change date format
 ☐ Choose format to show in the boxes in timeline
 ☐ Choose format to show on hover for timeline
 
@@ -11,7 +10,12 @@ Remember:
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
 
+
   Week Four:
+  ✔ Repositioned buttons @done(2017-10-08 16:44)
+  ✔ Added tooltips to buttons @done(2017-10-08 16:44)
+  ✔ Added tooltips to form @done(2017-10-08 16:43)
+  ✔ Date fine due to ISO 8601 @done(2017-10-08 16:43)
   ✔ Added vertical scrolling for result table @done(2017-10-01 16:43)
 
 

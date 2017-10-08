@@ -89,7 +89,7 @@ button:focus {
 }
 
 input[type=text] {
-  width: 50%;
+  width: 82.5%;
   text-align: center;
   padding: 10px;
   padding-left: 37px;
@@ -106,8 +106,9 @@ input[type=text] {
 
 
 input[type=button] {
-  width: 60.4%;
+  width: 100.4%;
   height: 40.5px;
+  align-content: center;
   text-align: center;
   border-color: #66c2a5;
   border-style: solid;
@@ -118,25 +119,12 @@ input[type=button] {
   font-size: 20px;
   background-color: black;
   color: grey;
+  margin-left: 12.5px;
 }
 
-button {
-  width: 60.4%;
-  height: 40.5px;
-  text-align: center;
-  border-color: #66c2a5;
-  border-style: solid;
-  border-left-width: medium;
-  border-right-width: medium;
-  border-top-width: thin;
-  border-bottom-width: thin;
-  font-size: 20px;
-  background-color: black;
-  color: grey;
-}
 
 input[type="datetime-local"]{
-  width: 46.8%;
+  width: 80.8%;
   background-color: black;
   color: grey;
   border-color: #66c2a5;
@@ -162,7 +150,7 @@ input[type="datetime-local"]::-webkit-clear-button {
     font-size: 15px;
    }
 
-.space {
+#space {
   margin-top: 19px;
 }
 
@@ -196,4 +184,53 @@ input[type="datetime-local"]::-webkit-clear-button {
 
 .vis-time-axis .vis-grid.vis-major {
   border-color: grey;
+}
+
+
+
+
+
+
+
+
+
+/*tooltip styling for form*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #66c2a5;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #66c2a5 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

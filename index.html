@@ -12,41 +12,93 @@
 
 </head>
 
+
 <body>
 
   <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
 
-    <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: " />
-    <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: " />
-    <!---->
-
-    <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
-    <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: "
-    />
-    <input type="text" name="investigator" id="investigator" placeholder="Investigator: " />
-    <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
-    <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: " />
-    <!---->
-
-    <input type="text" name="itemDescription" id="itemDescription" placeholder="Description of evidence: " />
-    <!---->
-
-    <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recovered by: " />
-
-    <div class="moveOver">
-      Time in: <br />
-      <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
-      Time out: <br />
-      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" /> <br />
+    <div class="tooltip">
+      <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: " />
+      <span class="tooltiptext">Your agency's name</span>
     </div>
+
+    <div class="tooltip">
+      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: " />
+      <span class="tooltiptext">Your agency's address</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
+      <span class="tooltiptext">The unique case #</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
+      <span class="tooltiptext">The investigating organization</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="investigator" id="investigator" placeholder="Investigator: " />
+      <span class="tooltiptext">Your name</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
+      <span class="tooltiptext">- Which Sector: Public/Private <br />- Which Case: Criminal/Civil</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: " />
+      <span class="tooltiptext">Where was it found?</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="itemDescription" id="itemDescription" placeholder="Description of evidence: " />
+      <span class="tooltiptext">What is it?</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recovered by: " />
+      <span class="tooltiptext">Who found this evidence?</span>
+    </div>
+
+
+    <!---->
+
+
+    <!---->
+
+    <div class="tooltip">
+      <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
+      <span class="tooltiptext">When did you remove it?</span>
+    </div>
+
+    <div class="tooltip">
+      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" /> <br />
+      <span class="tooltiptext">When did you put it back?</span>
+    </div>
+
+
+
 
     <div id="space">
-      <input class="space" onclick="submitForm()" id="loadStuff" type="button" value="Load" /><br />
-      <input  type="button" value="Populate" onClick="window.location.reload()"><br />
-      <button onclick="clearStorage()">Reset</button>
+      <div class="tooltip">
+        <input class="space" onclick="submitForm()" id="loadStuff" type="button" value="Load" /><br />
+        <span class="tooltiptext">Load to table</span>
+      </div>
+      <div class="tooltip">
+        <input type="button" value="Populate" onclick="window.location.reload()" />
+        <span class="tooltiptext">Populate the timeline</span>
+      </div>
+      <div class="tooltip">
+        <input type="button" value="Reset" onclick="clearStorage()" />
+        <span class="tooltiptext">Clear table and timeline</span>
+      </div>
     </div>
   </form>
+
+
 
   <div id='box'>
 
@@ -132,7 +184,10 @@
     var parsedObject = JSON.parse(retrievedTaskObject);
     buildTable(parsedObject);
     loadInitialTimelineData(parsedObject);
+    console.log(parsedObject);
   }
+
+
 
   function loadInitialTimelineData(parsedObject) {
     var data = [];
@@ -165,6 +220,7 @@
   }
 
   loadInitData()
+
 </script>
 
 </html>
