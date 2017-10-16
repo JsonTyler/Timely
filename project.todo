@@ -2,6 +2,7 @@ New:
 
 ☐ Choose format to show in the boxes in timeline
 ☐ Choose format to show on hover for timeline
+☐ Organize and comment code
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -10,6 +11,19 @@ Remember:
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
 
+
+
+
+
+  Week Six:
+  ✔ Edited warning prompt for reset button @done(2017-10-16 03:48)
+  ✔ Renamed file download from data.csv to timeline.csv @done(2017-10-16 03:48)
+  ✔ Add tooltip for conversion button 'save' @done(2017-10-16 03:39)
+  ✔ Style conversion button 'save' @done(2017-10-16 03:39)
+  ✔ rename new conversion button @done(2017-10-16 03:30)
+  ✔ Convert localStorage to database to excel document @done(2017-10-16 03:26)
+  ✔ Add button for conversion from json to excel @done(2017-10-16 03:26)
+  ✔ Add warning prompt for reset button @done(2017-10-16 03:26)
 
   Week Four:
   ✔ Repositioned buttons @done(2017-10-08 16:44)

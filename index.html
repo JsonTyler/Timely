@@ -9,7 +9,7 @@
   <link href="assets/css/index.css" rel="stylesheet" text="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="assets/js/vis.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/taffydb/2.7.3/taffy.js"></script>
 </head>
 
 
@@ -64,11 +64,6 @@
     </div>
 
 
-    <!---->
-
-
-    <!---->
-
     <div class="tooltip">
       <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
       <span class="tooltiptext">When did you remove it?</span>
@@ -79,8 +74,16 @@
       <span class="tooltiptext">When did you put it back?</span>
     </div>
 
-
-
+    <script>
+      function confirmDelete() {
+        var x = confirm("Are you sure you want to delete? This will delete all table and timeline data permanently.");
+        if (x)
+          return true;
+        else
+          Event.stop(event);
+          return false;
+      }
+    </script>
 
     <div id="space">
       <div class="tooltip">
@@ -92,11 +95,17 @@
         <span class="tooltiptext">Populate the timeline</span>
       </div>
       <div class="tooltip">
-        <input type="button" value="Reset" onclick="clearStorage()" />
+        <input type="button" value="Save" id="save"/>
+        <span class="tooltiptext">Save table to .xls file</span>
+      </div>
+      <div class="tooltip">
+        <input type="button" value="Reset" onclick="confirmDelete(); clearStorage();" />
         <span class="tooltiptext">Clear table and timeline</span>
       </div>
+
     </div>
   </form>
+
 
 
 
@@ -112,7 +121,8 @@
       <th> Time In </th>
       <th> Time Out </th>
       <th> Item Description </th>
-      <tbody id="tableBody"></tbody>
+      <tbody id="tableBody">
+      </tbody>
     </table>
   </div>
 
@@ -166,6 +176,98 @@
   window.addToStorage = function addToStorage() {
     var storedArray = JSON.stringify(toDoArray);
     localStorage.setItem("task", storedArray);
+
+    <!--TRY ONE-->
+    /* This method loads into whatever file is specified --> .xls, .doc, or .json in a beautified format:
+
+    var forensics = TAFFY();
+
+    forensics.insert(storedArray);
+
+
+    var str = JSON.stringify(forensics().get(), null, "\t");
+
+    function download(text, name, type) {
+      var a = document.createElement("a");
+      var file = new Blob([text], {
+        type: type
+      });
+      a.href = URL.createObjectURL(file);
+      a.download = name;
+      a.click();
+    }
+    download(str, 'test.json', 'text/plain');
+
+    */
+
+    <!--TRY TWO-->
+
+    var app = {};
+    /**
+     * Method to convert to csv from json
+     **/
+    app.JSON2CSV = function(objArray, addLable, addQuote) {
+      var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+      var str = '';
+      var line = '';
+      /*
+      $("#quote").is(':checked')
+      $("#labels").is(':checked')
+      */
+
+      if (addLable) {
+        var head = array[0];
+        for (var index in array[0]) {
+          var value = index + "";
+          if (addQuote) {
+            line += '"' + value.replace(/"/g, '""') + '",';
+          } else {
+            line += value + ',';
+          }
+        }
+        line = line.slice(0, -1);
+        str += line + '\r\n';
+      }
+
+      for (var i = 0; i < array.length; i++) {
+        line = '';
+        for (var index3 in array[i]) {
+          var value2 = array[i][index3] + "";
+          if (addQuote) {
+            line += '"' + value2.replace(/"/g, '""') + '",';
+          } else {
+            line += value2 + ',';
+          }
+        }
+        line = line.slice(0, -1);
+        str += line + '\r\n';
+      }
+      return str;
+    };
+    /**
+     * Method to download CSV form JSON object.
+     **/
+    app.downloadCSV = function(json, addLable, addQuote) {
+      var csv = app.JSON2CSV(json, addLable, addQuote);
+      var downloadLink = document.createElement("a");
+      var blob = new Blob(["\ufeff", csv]);
+      var url = URL.createObjectURL(blob);
+      downloadLink.href = url;
+      downloadLink.download = "timeline.csv";
+
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    };
+    $("#save").click(function() {
+      var json = TAFFY();
+      json.insert(storedArray);
+      var ugh = JSON.stringify(json().get(), null, "\t");
+      console.log(ugh);
+
+      app.downloadCSV(ugh, true, true);
+    });
+
   }
 
   window.buildTable = function buildTable(parsedObject) {
@@ -176,6 +278,8 @@
         addTaskToTable(parsedObject[i]);
       }
     }
+
+
   }
 
 
@@ -184,32 +288,32 @@
     var parsedObject = JSON.parse(retrievedTaskObject);
     buildTable(parsedObject);
     loadInitialTimelineData(parsedObject);
-    console.log(parsedObject);
   }
+
 
 
 
   function loadInitialTimelineData(parsedObject) {
     var data = [];
-    console.log( parsedObject);
     if (parsedObject != null) {
       for (i = 0; i < parsedObject.length; i++) {
-        data.push(
-          {
-            "id": parsedObject[i].caseNumber,
-            "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
-            "className": "green",
-            "start": parsedObject[i].timeRemoved,
-            "end": parsedObject[i].timeReturned,
-            "title": "Agency: SOMETITLE"
-          }
-        )
+        data.push({
+          "id": parsedObject[i].caseNumber,
+          "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
+          "className": "green",
+          "start": parsedObject[i].timeRemoved,
+          "end": parsedObject[i].timeReturned,
+          "title": "Agency: SOMETITLE"
+        })
       }
     }
 
     items.clear();
     items.add(data);
     timeline.fit();
+
+
+
   }
 
   /*
@@ -220,7 +324,11 @@
   }
 
   loadInitData()
-
 </script>
+
+<script>
+</script>
+
+
 
 </html>

@@ -106,7 +106,7 @@ input[type=text] {
 
 
 input[type=button] {
-  width: 100.4%;
+  width: 95.4%;
   height: 40.5px;
   align-content: center;
   text-align: center;
@@ -116,10 +116,10 @@ input[type=button] {
   border-right-width: medium;
   border-top-width: thin;
   border-bottom-width: thin;
-  font-size: 20px;
+  font-size: 15px;
   background-color: black;
   color: grey;
-  margin-left: 12.5px;
+  margin-left: 8.5px;
 }
 
 
