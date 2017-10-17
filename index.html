@@ -17,40 +17,25 @@
 
   <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
-
-    <div class="tooltip">
-      <input type="text" name="agencyName" id="agencyName" placeholder="Agency Name: " />
-      <span class="tooltiptext">Your agency's name</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency Address: " />
-      <span class="tooltiptext">Your agency's address</span>
-    </div>
-
     <div class="tooltip">
       <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
       <span class="tooltiptext">The unique case #</span>
     </div>
 
     <div class="tooltip">
-      <input type="text" name="investigatingOrganization" id="investigatingOrganization" placeholder="Investigating Organization: " />
-      <span class="tooltiptext">The investigating organization</span>
+      <input type="text" name="agencyName" id="agencyName" placeholder="Submitting Agency: " />
+      <span class="tooltiptext">Who is submitting this?</span>
     </div>
 
     <div class="tooltip">
-      <input type="text" name="investigator" id="investigator" placeholder="Investigator: " />
-      <span class="tooltiptext">Your name</span>
+      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Submitting Agency's Address: " />
+      <span class="tooltiptext">Where are they located?</span>
     </div>
 
-    <div class="tooltip">
-      <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
-      <span class="tooltiptext">- Which Sector: Public/Private <br />- Which Case: Criminal/Civil</span>
-    </div>
 
     <div class="tooltip">
-      <input type="text" id="locationOfEvidence" placeholder="Location of Evidence: " />
-      <span class="tooltiptext">Where was it found?</span>
+      <input type="text" name="collectedBy" id="collectedBy" placeholder="Collected By: " />
+      <span class="tooltiptext">Who is submitting this?</span>
     </div>
 
     <div class="tooltip">
@@ -59,10 +44,19 @@
     </div>
 
     <div class="tooltip">
-      <input type="text" name="recoveredBy" id="recoveredBy" placeholder="Recovered by: " />
-      <span class="tooltiptext">Who found this evidence?</span>
+      <input type="text" id="locationFound" placeholder="Location of Evidence: " />
+      <span class="tooltiptext">Where was it found?</span>
     </div>
 
+    <div class="tooltip">
+      <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
+      <span class="tooltiptext">- Which Sector: Public/Private <br />- Which Case: Criminal/Civil</span>
+    </div>
+
+    <div class="tooltip">
+      <input type="text" name="contact" id="contact" placeholder="Phone #: (555) 555-5555" />
+      <span class="tooltiptext">How can we reach you?</span>
+    </div>
 
     <div class="tooltip">
       <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
@@ -74,9 +68,11 @@
       <span class="tooltiptext">When did you put it back?</span>
     </div>
 
+
+
     <script>
       function confirmDelete() {
-        var x = confirm("Are you sure you want to delete? This will delete all table and timeline data permanently.");
+        var x = confirm("Warning: This will delete all table and timeline data permanently.");
         if (x)
           return true;
         else
@@ -116,11 +112,18 @@
   <div id='result'>
     <table id="myTable" border="1">
       <thead>History of Timeline:</thead>
-      <th> Case # </th>
-      <th> Investigator </th>
-      <th> Time In </th>
-      <th> Time Out </th>
-      <th> Item Description </th>
+      <th> Case #: </th>
+      <th> Agency Name:  </th>
+      <th> Agency Address:  </th>
+      <th> Collected By: </th>
+      <th> Item Description: </th>
+      <th> Location Found: </th>
+      <th> Case Nature: </th>
+      <th> Contact: </th>
+      <th> Removed: </th>
+      <th> Returned: </th>
+
+
       <tbody id="tableBody">
       </tbody>
     </table>
@@ -139,38 +142,64 @@
   window.addTaskToTable = function addTaskToTable(obj) {
     var row = table.insertRow(0);
     var cellCaseNumber = row.insertCell(0);
-    var cellInvestigator = row.insertCell(1);
-    var cellTimeRemoved = row.insertCell(2);
-    var cellTimeReturned = row.insertCell(3);
+    var cellAgencyName = row.insertCell(1);
+    var cellAgencyAddress = row.insertCell(2);
+    var cellCollectedBy = row.insertCell(3);
     var cellItemDescription = row.insertCell(4);
+    var cellLocationFound = row.insertCell(5);
+    var cellNatureOfCase = row.insertCell(6);
+    var cellContact = row.insertCell(7);
+    var cellTimeRemoved = row.insertCell(8);
+    var cellTimeReturned = row.insertCell(9);
+
+
     cellCaseNumber.innerHTML = obj.caseNumber;
-    cellInvestigator.innerHTML = obj.investigator;
+    cellAgencyName.innerHTML = obj.agencyName;
+    cellAgencyAddress.innerHTML = obj.agencyAddress;
+    cellCollectedBy.innerHTML = obj.collectedBy;
+    cellItemDescription.innerHTML = obj.itemDescription;
+    cellLocationFound.innerHTML = obj.locationFound;
+    cellNatureOfCase.innerHTML = obj.natureOfCase;
+    cellContact.innerHTML = obj.contact;
     cellTimeRemoved.innerHTML = obj.timeRemoved;
     cellTimeReturned.innerHTML = obj.timeReturned;
-    cellItemDescription.innerHTML = obj.itemDescription;
+
+
     addToStorage();
   }
 
   window.submitForm = function submitForm() {
     var caseNumber = document.getElementById("caseNumber").value;
-    var investigator = document.getElementById("investigator").value;
+    var agencyName = document.getElementById("agencyName").value;
+    var agencyAddress = document.getElementById("agencyAddress").value;
+    var collectedBy = document.getElementById("collectedBy").value;
+    var itemDescription = document.getElementById("itemDescription").value;
+    var locationFound = document.getElementById("locationFound").value;
+    var natureOfCase = document.getElementById("natureOfCase").value;
+    var contact = document.getElementById("contact").value;
     var timeRemoved = document.getElementById("timeRemoved").value;
     var timeReturned = document.getElementById("timeReturned").value;
-    var itemDescription = document.getElementById("itemDescription").value;
-    var taskSomething = getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription);
+    var taskSomething = getTaskObj(caseNumber, agencyName, agencyAddress, collectedBy, itemDescription, locationFound, natureOfCase, contact, timeRemoved, timeReturned);
     toDoArray.push(taskSomething);
     addTaskToTable(taskSomething);
   };
 
-  window.getTaskObj = function getTaskObj(caseNumber, investigator, timeRemoved, timeReturned, itemDescription) {
+  window.getTaskObj = function getTaskObj(caseNumber, agencyName, agencyAddress, collectedBy, itemDescription, locationFound, natureOfCase, contact, timeRemoved, timeReturned) {
     var taskObject = {
       caseNumber: caseNumber,
-      investigator: investigator,
+      agencyName: agencyName,
+      agencyAddress: agencyAddress,
+      collectedBy: collectedBy,
+      itemDescription: itemDescription,
+      locationFound: locationFound,
+      natureOfCase: natureOfCase,
+      contact: contact,
       timeRemoved: timeRemoved,
-      timeReturned: timeReturned,
-      itemDescription: itemDescription
+      timeReturned: timeReturned
+
     };
     return taskObject;
+    console.log(taskObject);
   }
 
   window.addToStorage = function addToStorage() {
@@ -206,7 +235,7 @@
     /**
      * Method to convert to csv from json
      **/
-    app.JSON2CSV = function(objArray, addLable, addQuote) {
+    app.JSON2CSV = function(objArray, addLabel, addQuote) {
       var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
       var str = '';
       var line = '';
@@ -215,18 +244,24 @@
       $("#labels").is(':checked')
       */
 
-      if (addLable) {
+      if (addLabel) {
         var head = array[0];
-        for (var index in array[0]) {
-          var value = index + "";
-          if (addQuote) {
-            line += '"' + value.replace(/"/g, '""') + '",';
-          } else {
-            line += value + ',';
+        var outputTitles = ["Case Number", "Agency Name", "Agency Address", "Collected By", "Description", "Location Found", "Nature Of Case", "Contact", "Removed", "Returned"];
+        var length = outputTitles.length;
+        var stringy = outputTitles + ":";
+        var count = 0;
+        for (var j=0; j<1; j++) {
+          line += stringy;
+          count++;
+
+          if(count > 1){
+            break;
           }
         }
-        line = line.slice(0, -1);
-        str += line + '\r\n';
+
+          line = line.slice(0, -1);
+          str += line + '\r\n';
+
       }
 
       for (var i = 0; i < array.length; i++) {
@@ -247,8 +282,8 @@
     /**
      * Method to download CSV form JSON object.
      **/
-    app.downloadCSV = function(json, addLable, addQuote) {
-      var csv = app.JSON2CSV(json, addLable, addQuote);
+    app.downloadCSV = function(json, addLabel, addQuote) {
+      var csv = app.JSON2CSV(json, addLabel, addQuote);
       var downloadLink = document.createElement("a");
       var blob = new Blob(["\ufeff", csv]);
       var url = URL.createObjectURL(blob);
@@ -263,7 +298,7 @@
       var json = TAFFY();
       json.insert(storedArray);
       var ugh = JSON.stringify(json().get(), null, "\t");
-      console.log(ugh);
+      console.log(json);
 
       app.downloadCSV(ugh, true, true);
     });
@@ -274,7 +309,7 @@
 
     if (parsedObject != null) {
       for (i = 0; i < parsedObject.length; i++) {
-        toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].investigator, parsedObject[i].timeRemoved, parsedObject[i].timeReturned, parsedObject[i].itemDescription));
+        toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].agencyName, parsedObject[i].agencyAddress, parsedObject[i].collectedBy, parsedObject[i].itemDescription, parsedObject[i].locationFound, parsedObject[i].natureOfCase, parsedObject[i].contact, parsedObject[i].timeRemoved, parsedObject[i].timeReturned));
         addTaskToTable(parsedObject[i]);
       }
     }
@@ -324,6 +359,8 @@
   }
 
   loadInitData()
+
+
 </script>
 
 <script>

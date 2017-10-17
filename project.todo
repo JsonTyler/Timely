@@ -15,7 +15,11 @@ Archive:
 
 
 
+
+
   Week Six:
+  ✔ Choose format for table @done(2017-10-16 21:40)
+  ✔ Added Custom Headers in place of variables for Excel Table (ex: Case Number instead of caseNumber) @done(2017-10-16 20:28)
   ✔ Edited warning prompt for reset button @done(2017-10-16 03:48)
   ✔ Renamed file download from data.csv to timeline.csv @done(2017-10-16 03:48)
   ✔ Add tooltip for conversion button 'save' @done(2017-10-16 03:39)
