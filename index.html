@@ -15,6 +15,12 @@
 
 <body>
 
+    <ul id="nav">
+      <li><a href="#who">Timely by <br /> Jason Bruno</a></li>
+      <li><a href="#why">About</a></li>
+    </ul>
+
+
   <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
 
     <div class="tooltip">
@@ -28,7 +34,7 @@
     </div>
 
     <div class="tooltip">
-      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Submitting Agency's Address: " />
+      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency's Address: " />
       <span class="tooltiptext">Where are they located?</span>
     </div>
 
@@ -69,7 +75,6 @@
     </div>
 
 
-
     <script>
       function confirmDelete() {
         var x = confirm("Warning: This will delete all table and timeline data permanently.");
@@ -77,7 +82,7 @@
           return true;
         else
           Event.stop(event);
-          return false;
+        return false;
       }
     </script>
 
@@ -91,7 +96,7 @@
         <span class="tooltiptext">Populate the timeline</span>
       </div>
       <div class="tooltip">
-        <input type="button" value="Save" id="save"/>
+        <input type="button" value="Save" id="save" />
         <span class="tooltiptext">Save table to .xls file</span>
       </div>
       <div class="tooltip">
@@ -113,8 +118,8 @@
     <table id="myTable" border="1">
       <thead>History of Timeline:</thead>
       <th> Case #: </th>
-      <th> Agency Name:  </th>
-      <th> Agency Address:  </th>
+      <th> Agency Name: </th>
+      <th> Agency Address: </th>
       <th> Collected By: </th>
       <th> Item Description: </th>
       <th> Location Found: </th>
@@ -209,7 +214,7 @@
     <!--TRY ONE-->
     /* This method loads into whatever file is specified --> .xls, .doc, or .json in a beautified format:
 
-    var forensics = TAFFY();
+
 
     forensics.insert(storedArray);
 
@@ -250,17 +255,17 @@
         var length = outputTitles.length;
         var stringy = outputTitles + ":";
         var count = 0;
-        for (var j=0; j<1; j++) {
+        for (var j = 0; j < 1; j++) {
           line += stringy;
           count++;
 
-          if(count > 1){
+          if (count > 1) {
             break;
           }
         }
 
-          line = line.slice(0, -1);
-          str += line + '\r\n';
+        line = line.slice(0, -1);
+        str += line + '\r\n';
 
       }
 
@@ -289,7 +294,7 @@
       var url = URL.createObjectURL(blob);
       downloadLink.href = url;
       downloadLink.download = "timeline.csv";
-
+      var counter = 0;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
@@ -298,7 +303,6 @@
       var json = TAFFY();
       json.insert(storedArray);
       var ugh = JSON.stringify(json().get(), null, "\t");
-      console.log(json);
 
       app.downloadCSV(ugh, true, true);
     });
@@ -309,7 +313,8 @@
 
     if (parsedObject != null) {
       for (i = 0; i < parsedObject.length; i++) {
-        toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].agencyName, parsedObject[i].agencyAddress, parsedObject[i].collectedBy, parsedObject[i].itemDescription, parsedObject[i].locationFound, parsedObject[i].natureOfCase, parsedObject[i].contact, parsedObject[i].timeRemoved, parsedObject[i].timeReturned));
+        toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].agencyName, parsedObject[i].agencyAddress, parsedObject[i].collectedBy, parsedObject[i].itemDescription, parsedObject[i].locationFound, parsedObject[i].natureOfCase,
+          parsedObject[i].contact, parsedObject[i].timeRemoved, parsedObject[i].timeReturned));
         addTaskToTable(parsedObject[i]);
       }
     }
@@ -334,11 +339,11 @@
       for (i = 0; i < parsedObject.length; i++) {
         data.push({
           "id": parsedObject[i].caseNumber,
-          "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
+          "content": "Case #: " + parsedObject[i].caseNumber,
           "className": "green",
           "start": parsedObject[i].timeRemoved,
           "end": parsedObject[i].timeReturned,
-          "title": "Agency: SOMETITLE"
+          "title": "Collected By: " + parsedObject[i].collectedBy
         })
       }
     }
@@ -359,8 +364,6 @@
   }
 
   loadInitData()
-
-
 </script>
 
 <script>

@@ -19,7 +19,7 @@ var btnLoad = document.getElementById('load');
     var data = [
       {
         "id": form.caseNumber,
-        "content": "Date: " + parsedObject[i].timeRemoved + "<br />" + "Case #: " + parsedObject[i].caseNumber,
+        "content": "Removed: " + form.timeRemoved.value + "<br />" + "Returned: " + form.timeReturned.value + "<br />" "Case #: " + form.caseNumber.value,
         "className": "green",
         "start": form.timeRemoved.value,
         "end": form.timeReturned.value,

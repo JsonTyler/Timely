@@ -1,8 +1,7 @@
 New:
 
-☐ Choose format to show in the boxes in timeline
-☐ Choose format to show on hover for timeline
 ☐ Organize and comment code
+☐ Add #about page
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -17,7 +16,12 @@ Archive:
 
 
 
+
   Week Six:
+  ✔ Choose format to show on hover for timeline (Person who collected it only to improve readability) @done(2017-10-18 23:45)
+  ✔ Choose format to show in the boxes in timeline (Case number only to improve readability) @done(2017-10-18 23:44)
+  ✔ Add banner for formality @done(2017-10-18 23:23)
+  
   ✔ Choose format for table @done(2017-10-16 21:40)
   ✔ Added Custom Headers in place of variables for Excel Table (ex: Case Number instead of caseNumber) @done(2017-10-16 20:28)
   ✔ Edited warning prompt for reset button @done(2017-10-16 03:48)
