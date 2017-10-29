@@ -17,11 +17,15 @@ Archive:
 
 
 
+
+
   Week Six:
+  ✔ Fixed tooltip size and font @done(2017-10-19 02:26)
+
+  ✔ Resized form @done(2017-10-18 23:58)
   ✔ Choose format to show on hover for timeline (Person who collected it only to improve readability) @done(2017-10-18 23:45)
   ✔ Choose format to show in the boxes in timeline (Case number only to improve readability) @done(2017-10-18 23:44)
   ✔ Add banner for formality @done(2017-10-18 23:23)
-  
   ✔ Choose format for table @done(2017-10-16 21:40)
   ✔ Added Custom Headers in place of variables for Excel Table (ex: Case Number instead of caseNumber) @done(2017-10-16 20:28)
   ✔ Edited warning prompt for reset button @done(2017-10-16 03:48)
