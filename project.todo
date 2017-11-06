@@ -1,7 +1,5 @@
 New:
 
-☐ Organize and comment code
-☐ Add #about page
 
 Remember:
 ☐ browser sync command: browser-sync start --server --files index.html, assets/css/*.css, assets/js/*.js, assets/*.json"
@@ -13,11 +11,9 @@ Archive:
 
 
 
-
-
-
-
-
+  Week Seven:
+  ✔ Add #about page @done(2017-11-05 20:01)
+  ✔ Organize and comment code @done(2017-11-05 20:01)
 
   Week Six:
   ✔ Fixed tooltip size and font @done(2017-10-19 02:26)

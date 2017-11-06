@@ -3,13 +3,6 @@
   Initialized timeline and it's options are in @timeline.js
  */
 
-/*
-  The function 'loadData' loads the data from the html 'form' object into
-  the var 'data'. The purpose of 'data' is to create a format that vis.js
-  will accept as input data.
- */
-
-
  var table = document.getElementById("tableBody");
  toDoArray = [];
 

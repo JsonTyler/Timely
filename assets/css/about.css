@@ -1,0 +1,54 @@
+body{
+width:1475px;
+margin:50px auto;
+background-color:rgb(57, 58, 64);
+padding-top: 17px;
+padding-left: 26px;
+overflow: hidden
+
+}
+
+
+
+
+
+.first p{
+padding:15px;
+color:#fff;
+
+}
+
+.main_content{
+
+width:100%;
+
+background-color:#000;
+opacity: 0.75;
+border: solid #66c2a5 1.5px;
+font-size: 13px;
+
+}
+.two h4{
+color:#fff;
+text-align:center;
+font-size: 15px;
+}
+
+p{
+  padding: 7px;
+  padding-left: 15px;
+  color: white;
+  font-size: 15px;
+}
+
+.indent{
+  padding-left: 50px;
+}
+
+ul{
+  padding-left: 80px;
+}
+
+li{
+  margin-left: 80px;
+}
