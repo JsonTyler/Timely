@@ -1,63 +1,7 @@
-html {
-  width: 69.3%;
-  background-color: rgb(57, 58, 64);
-  color: #66c2a5;
-  font-size: 20px;
-  padding-left: 0px;
-  padding-right: 0px;
-  overflow-y: hidden;
+
+a {
+  background-color: green;
 }
-
-body {
-
-}
-
-#result {
-  font-size: 15px;
-  background-color: black;
-  width: 948px;
-  height:458px;
-  border-color: #66c2a5;
-  border-style: solid;
-  border-left-width: medium;
-  border-right-width: medium;
-  border-top-width: thin;
-  border-bottom-width: thin;
-  text-align: left;
-  position: absolute;
-  vertical-align: top;
-  word-wrap: break-word;
-  top: 248px;
-  left: 471px;
-  overflow-y: auto;
-  text-align: justify;
-}
-
-#visualization{
-  position: relative;
-  bottom: 500px;
-  left: 463px;
-}
-
-/*Styling Form*/
-
-div.wrap {
-  width: 250px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  float: left;
-}
-
-#myForm {
-  margin-left: 90px;
-  padding-top: 50px;
-
-  height: 500px;
-  width: 500px;
-  align-items: center;
-}
-
 
 input[type=text]:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 100px black inset;
@@ -67,25 +11,25 @@ input[type=text]:-webkit-autofill {
 
 input[type=text]:focus {
 
-    background-color:#66c2a5 ;
+    background-color:green ;
 
 }
 
 input[type=submit]:focus {
 
-    background-color:#66c2a5 ;
+    background-color:green;
 
 }
 
 input[type=button]:focus {
 
-    background-color:#66c2a5 ;
+    background-color:green ;
     color: white;
 }
 
 button:focus {
 
-    background-color:#66c2a5 ;
+    background-color:green ;
     color: white;
 
 }
@@ -95,7 +39,7 @@ input[type=text] {
   text-align: center;
   padding: 10px;
   padding-left: 37px;
-  border-color: #66c2a5;
+  border-color: green;
   border-style: solid;
   border-left-width: medium;
   border-right-width: medium;
@@ -113,15 +57,15 @@ input[type=button] {
   height: 40.5px;
   align-content: center;
   text-align: center;
-  border-color: #66c2a5;
+  border-color: green;
   border-style: solid;
   border-left-width: medium;
   border-right-width: medium;
   border-top-width: thin;
   border-bottom-width: thin;
   font-size: 15px;
-  background-color: black;
-  color: grey;
+  background-color: white;
+  color: black;
   margin-left: 8.5px;
 }
 
@@ -130,7 +74,7 @@ input[type="datetime-local"]{
   width: 80.8%;
   background-color: black;
   color: grey;
-  border-color: #66c2a5;
+  border-color: green;
   border-style: solid;
   border-left-width: medium;
   border-right-width: medium;
@@ -173,72 +117,8 @@ input[type="datetime-local"]::-webkit-clear-button {
   font-style:bold;
   font-size: 18px;
   border-color: #fff;
-  background: #66c2a5;
+  background: green;
   opacity: .75;
-}
-
-.vis-item .vis-item-overflow {
-  overflow: visible;
-}
-
-.vis-time-axis .vis-grid.vis-minor {
-  border-color: #66c2a5;
-}
-
-.vis-time-axis .vis-grid.vis-major {
-  border-color: grey;
-}
-
-
-
-
-
-
-
-
-
-/*tooltip styling for form*/
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 170px;
-    background-color: rgba(102, 192, 165, 0.97);
-    color: #fff;
-    font-size: 15px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 7px;
-    padding: 1px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-bottom: 10px;
-    margin-left: -80px;
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #66c2a5 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
 }
 
 
@@ -277,7 +157,7 @@ input[type="datetime-local"]::-webkit-clear-button {
     font-weight: bold;
 }
 #nav li a:hover {
-    color: #66c2a5;
+    color: green;
 }
 ul{
   padding-left: 80px;

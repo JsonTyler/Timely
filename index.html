@@ -1,144 +1,118 @@
 <!DOCTYPE html>
-<html>
-
+<html style="padding-bottom: 50px;">
 <head>
+  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Project: Timely</title>
   <link href="assets/css/vis.min.css" rel="stylesheet" text="text/css" />
   <link href="assets/css/vis.css" rel="stylesheet" text="text/css" />
   <link href="assets/css/index.css" rel="stylesheet" text="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/js/vis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/taffydb/2.7.3/taffy.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 
 
 <body>
-
-    <ul id="nav">
-      <li><a href="index.html">Timely by <br /> Jason Bruno</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-
-
-  <form id="myForm" class="demo" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>
-
-    <div class="tooltip">
-      <input type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " />
-      <span class="tooltiptext">The unique case #</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="agencyName" id="agencyName" placeholder="Submitting Agency: " />
-      <span class="tooltiptext">Who is submitting this?</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency's Address: " />
-      <span class="tooltiptext">Where are they located?</span>
-    </div>
-
-
-    <div class="tooltip">
-      <input type="text" name="collectedBy" id="collectedBy" placeholder="Collected By: " />
-      <span class="tooltiptext">Who is submitting this?</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="itemDescription" id="itemDescription" placeholder="Description of evidence: " />
-      <span class="tooltiptext">What is it?</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" id="locationFound" placeholder="Location of Evidence: " />
-      <span class="tooltiptext">Where was it found?</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " />
-      <span class="tooltiptext">- Which Sector: Public/Private <br />- Which Case: Criminal/Civil</span>
-    </div>
-
-    <div class="tooltip">
-      <input type="text" name="contact" id="contact" placeholder="Phone #: (555) 555-5555" />
-      <span class="tooltiptext">How can we reach you?</span>
-    </div>
-
-    <div class="tooltip">
-      <input class="extraSpace" type="datetime-local" name="timeRemoved" id="timeRemoved" /> <br />
-      <span class="tooltiptext">When did you remove it?</span>
-    </div>
-
-    <div class="tooltip">
-      <input class="extraSpace" type="datetime-local" name="timeReturned" id="timeReturned" /> <br />
-      <span class="tooltiptext">When did you put it back?</span>
-    </div>
-
-
-    <script>
-      function confirmDelete() {
-        var x = confirm("Warning: This will delete all table and timeline data permanently.");
-        if (x)
-          return true;
-        else
-          Event.stop(event);
-        return false;
-      }
-    </script>
-
-    <div id="space">
-      <div class="tooltip">
-        <input class="space" onclick="submitForm()" id="loadStuff" type="button" value="Load" /><br />
-        <span class="tooltiptext">Load to table</span>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md my-bg-dark navbar-dark border-bottom border-light rounded-bottom fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4 text-success" href="https://www.jsonbytes.com">{ JsonBytes };</a>
       </div>
-      <div class="tooltip">
-        <input type="button" value="Populate" onclick="window.location.reload()" />
-        <span class="tooltiptext">Populate the timeline</span>
+    </nav>
+  </header>
+  <main role="main" class="container" style="border:2px solid black; margin:60x; padding:30px;">
+    
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <form>
+          <div class="demo form-group" id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>        
+            <label for="caseNumber">Case Number</label>
+            <input class="form-control text-muted" type="text" name="caseNumber" id="caseNumber" placeholder="Case #: " /><br>
+            <label for="agencyName">Agency Name</label>
+            <input class="form-control text-muted" type="text" name="agencyName" id="agencyName" placeholder="Submitting Agency: " /><br>
+            <label for="agencyAddress">Agency Address</label>
+            <input class="form-control text-muted" type="text" name="agencyAddress" id="agencyAddress" placeholder="Agency's Address: "><br>
+            <label for="collectedBy">Collected By</label>
+            <input class="form-control text-muted" type="text" name="collectedBy" id="collectedBy" placeholder="Collected By: " /><br>
+            <label for="itemDescription">Item Description</label>
+            <input class="form-control text-muted bg-success" type="text" name="itemDescription" id="itemDescription" placeholder="Description of evidences: " /><br>
+            <label for="locationFoundr">Location Found</label>
+            <input class="form-control text-muted" type="text" id="locationFound" placeholder="Location of Evidence: " /><br>
+            <label for="natureOfCase">Nature of Case</label>
+            <input class="form-control text-muted" type="text" name="natureOfCase" id="natureOfCase" placeholder="Nature of Case: " /><br>
+            <label for="contact">Contact Phone Number</label>
+            <input class="form-control text-muted" type="text" name="contact" id="contact" placeholder="Phone #: (555) 555-5555" /><br>
+            <label for="timeRemoved">Date Removed</label>
+            <input class="form-control text-muted" type="date" name="timeRemoved" id="timeRemoved" /><br>
+            <label for="timeReturned">Date Returned</label>
+            <input class="form-control text-muted" type="date" name="timeReturned" id="timeReturned" /><br>    
+          </div>
+        </form>
       </div>
-      <div class="tooltip">
-        <input type="button" value="Save" id="save" />
-        <span class="tooltiptext">Save table to .xls file</span>
+      <div class="col-sm-4">
+        <input type="button" class="btn btn-success btn-lg" onclick="submitForm()" id="loadStuff" value="Load to table" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
+        <input type="button" class="btn btn-success btn-lg" onclick="window.location.reload()" value="Populate the timeline" style="border: 2px solid black; padding: 10px; margin: 5px;" />
+        <input type="button" class="btn btn-success btn-lg" id="save" value="Save tbl to file" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
+        <input type="button" class="btn btn-success btn-lg" onclick="confirmDelete(); clearStorage();" value="Reset all" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
       </div>
-      <div class="tooltip">
-        <input type="button" value="Reset" onclick="confirmDelete(); clearStorage();" />
-        <span class="tooltiptext">Clear table and timeline</span>
-      </div>
-
     </div>
-  </form>
+      
+    <div class="row justify-content-center">
+        <div class="col-sm">
+          <div id="visualization">
+          </div>
+        </div>
+    </div>
+     
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-sm">
+        <div id='result'>
+          <table class="table table-condensed table-bordered table-hover" id="myTable" border="1">
+            <thead>
+              <tr>
+              <th> Case #: </th>
+              <th> Agency Name: </th>
+              <th> Agency Address: </th>
+              <th> Collected By: </th>
+              <th> Item Description: </th>
+              <th> Location Found: </th>
+              <th> Case Nature: </th>
+              <th> Contact: </th>
+              <th> Removed: </th>
+              <th> Returned: </th>
+            </thead> 
+            <tbody id="tableBody">
+            </tbody>
+         </table>
+       </div>
+      </div>
+    </div>
 
+  </main>
 
+    
 
-
-  <div id='box'>
-
-  </div>
-
-  <div id='result'>
-    <table id="myTable" border="1">
-      <thead>History of Timeline:</thead>
-      <th> Case #: </th>
-      <th> Agency Name: </th>
-      <th> Agency Address: </th>
-      <th> Collected By: </th>
-      <th> Item Description: </th>
-      <th> Location Found: </th>
-      <th> Case Nature: </th>
-      <th> Contact: </th>
-      <th> Removed: </th>
-      <th> Returned: </th>
-
-
-      <tbody id="tableBody">
-      </tbody>
-    </table>
-  </div>
-
-
-  <div id="visualization"></div>
+  <script>
+    function confirmDelete() {
+      var x = confirm("Warning: This will delete all table and timeline data permanently.");
+      if (x)
+        return true;
+      else
+        Event.stop(event);
+      return false;
+    }
+  </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/vis.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/taffydb/2.7.3/taffy.js"></script>
+  <!-- Bootstrap JavaScript -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="assets/js/timeline.js"></script>
+  <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
-<script type="text/javascript" src="assets/js/timeline.js"></script>
-<script type="text/javascript" src="assets/js/script.js"></script>
 
 </html>
