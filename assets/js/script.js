@@ -9,24 +9,18 @@
  window.addTaskToTable = function addTaskToTable(obj) {
    var row = table.insertRow(0);
    var cellCaseNumber = row.insertCell(0);
-   var cellAgencyName = row.insertCell(1);
-   var cellAgencyAddress = row.insertCell(2);
-   var cellCollectedBy = row.insertCell(3);
-   var cellItemDescription = row.insertCell(4);
-   var cellLocationFound = row.insertCell(5);
-   var cellNatureOfCase = row.insertCell(6);
-   var cellContact = row.insertCell(7);
-   var cellTimeRemoved = row.insertCell(8);
-   var cellTimeReturned = row.insertCell(9);
+   var cellCollectedBy = row.insertCell(1);
+   var cellItemDescription = row.insertCell(2);
+   var cellLocationFound = row.insertCell(3);
+   var cellContact = row.insertCell(4);
+   var cellTimeRemoved = row.insertCell(5);
+   var cellTimeReturned = row.insertCell(6);
 
 
    cellCaseNumber.innerHTML = obj.caseNumber;
-   cellAgencyName.innerHTML = obj.agencyName;
-   cellAgencyAddress.innerHTML = obj.agencyAddress;
    cellCollectedBy.innerHTML = obj.collectedBy;
    cellItemDescription.innerHTML = obj.itemDescription;
    cellLocationFound.innerHTML = obj.locationFound;
-   cellNatureOfCase.innerHTML = obj.natureOfCase;
    cellContact.innerHTML = obj.contact;
    cellTimeRemoved.innerHTML = obj.timeRemoved;
    cellTimeReturned.innerHTML = obj.timeReturned;
@@ -37,29 +31,23 @@
 
  window.submitForm = function submitForm() {
    var caseNumber = document.getElementById("caseNumber").value;
-   var agencyName = document.getElementById("agencyName").value;
-   var agencyAddress = document.getElementById("agencyAddress").value;
    var collectedBy = document.getElementById("collectedBy").value;
    var itemDescription = document.getElementById("itemDescription").value;
    var locationFound = document.getElementById("locationFound").value;
-   var natureOfCase = document.getElementById("natureOfCase").value;
    var contact = document.getElementById("contact").value;
    var timeRemoved = document.getElementById("timeRemoved").value;
    var timeReturned = document.getElementById("timeReturned").value;
-   var taskSomething = getTaskObj(caseNumber, agencyName, agencyAddress, collectedBy, itemDescription, locationFound, natureOfCase, contact, timeRemoved, timeReturned);
+   var taskSomething = getTaskObj(caseNumber, collectedBy, itemDescription, locationFound, contact, timeRemoved, timeReturned);
    toDoArray.push(taskSomething);
    addTaskToTable(taskSomething);
  };
 
- window.getTaskObj = function getTaskObj(caseNumber, agencyName, agencyAddress, collectedBy, itemDescription, locationFound, natureOfCase, contact, timeRemoved, timeReturned) {
+ window.getTaskObj = function getTaskObj(caseNumber, collectedBy, itemDescription, locationFound, contact, timeRemoved, timeReturned) {
    var taskObject = {
      caseNumber: caseNumber,
-     agencyName: agencyName,
-     agencyAddress: agencyAddress,
      collectedBy: collectedBy,
      itemDescription: itemDescription,
      locationFound: locationFound,
-     natureOfCase: natureOfCase,
      contact: contact,
      timeRemoved: timeRemoved,
      timeReturned: timeReturned
@@ -113,7 +101,7 @@
 
      if (addLabel) {
        var head = array[0];
-       var outputTitles = ["Case Number", "Agency Name", "Agency Address", "Collected By", "Description", "Location Found", "Nature Of Case", "Contact", "Removed", "Returned"];
+       var outputTitles = ["Case Number", "Collected By", "Description", "Location Found", "Contact", "Removed", "Returned"];
        var length = outputTitles.length;
        var stringy = outputTitles + ":";
        var count = 0;
@@ -175,7 +163,7 @@
 
    if (parsedObject != null) {
      for (i = 0; i < parsedObject.length; i++) {
-       toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].agencyName, parsedObject[i].agencyAddress, parsedObject[i].collectedBy, parsedObject[i].itemDescription, parsedObject[i].locationFound, parsedObject[i].natureOfCase,
+       toDoArray.push(getTaskObj(parsedObject[i].caseNumber, parsedObject[i].collectedBy, parsedObject[i].itemDescription, parsedObject[i].locationFound,
          parsedObject[i].contact, parsedObject[i].timeRemoved, parsedObject[i].timeReturned));
        addTaskToTable(parsedObject[i]);
      }
@@ -200,7 +188,7 @@
    if (parsedObject != null) {
      for (i = 0; i < parsedObject.length; i++) {
        data.push({
-         "id": parsedObject[i].caseNumber,
+         "id": i,
          "content": "Case #: " + parsedObject[i].caseNumber,
          "className": "green",
          "start": parsedObject[i].timeRemoved,
