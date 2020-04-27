@@ -1,67 +1,154 @@
-body {
-  
+*{
+  padding:0;
+  margin:0;
 }
-.my-bg-dark {
+
+html {
+  color: #373737;
+}
+
+ 
+input[type="text"], input[type="date"], textarea {
+  color: #f4f4f4;
+  background-color: black;
+
+}
+
+.the-container {
+  width: 100%;
+  padding: 50px;
+  background-color: #373737;
+  bottom: 0;
+  height: 100vh;
+}
+
+#timeline {
+  padding: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+#visualization {
+  margin: 50px;
+  margin-top: 100px;
+  background-color: #610E20;
+  padding: 50px;
+  opacity: 0.7;
+  color:white;
+}
+
+#questions {
+  padding: 50px;
+}
+
+#the-form {
+  padding: 50px;
+  margin: 50px;
+  margin-top: 100px;
+  background-color: #610E20;
+  opacity: 0.7;
+  color:white;
+}
+
+#the-buttons {
+  top: 60px;
+  bottom: 300px;
+  padding: 10px;
+  height: 100%;
+  background-color: #f4f4f4;
+  border-right: 3px solid #C0B283;
+}
+
+#the-buttons input {
+  border: 2px solid #373737;
+  background-color: #DCD0C0;
+  margin-top: 160px;
+}
+#the-buttons input:hover {
+  border: 2px solid #373737;
+  background-color: #610E20;
+  color: #f4f4f4;
+}
+
+#table {
+  padding: 50px;
+  margin: 100px;
+  margin-top: 100px;
+}
+
+#the-table {
+  word-break: break-all;
+  background-color: #610E20;
+  opacity: 0.7;
+  color: #f4f4f4;
+}
+
+#the-table th {
+  background-color: black;
+  color: #f4f4f4;
+}
+
+#table tr:nth-child(odd) {
+  background-color: #f4f4f4;
+  color: #373737;
+}
+
+#table tr:hover {
+  background-color: #C0B283;
+}
+
+#the-logo {
+  position: fixed;
+  color: #373737;
+  right: 0;
+}
+
+.nav-link {
+  border: 2px solid #373737;
+  background-color: #f4f4f4;
+  border-bottom: 3px solid #C0B283;
+  color: black;
+}
+
+.nav-link:hover {
+  border: 2px solid #373737;
+  background-color: #610E20;
+  color: #f4f4f4;
+}
+
+nav {
+  background-color: #f4f4f4;
+  border-bottom: 3px solid #C0B283;
+}
+
+.vis-item-content {
+  border: 2px solid #373737;
+  background-color: #DCD0C0;
+}
+
+.vis-item.vis-selected {
+  background-color: #373737;
+  border: 2px solid #f4f4f4;
+}
+
+.tabular {
+  border: 2px solid #373737;
+  background-color: #DCD0C0;
+  color: black;
+}
+
+.vis-timeline.vis-bottom {
   background-color: black;
 }
-.container-fluid {
-  margin-top: 7%;
-}
-form > .demo > label {
-  color: black;
-}
 
-textarea {
-  min-width: 100%;
-  min-height: 50%;
-}
-#myTable {
-  color: black;
-  
-  border-radius: 15px;
-  border-color: white;
-  border-style: outset;
-}
-
-#myTable.table-hover tbody tr:hover {
-	color: white;
-	background-color: black;
-}
-
-#the_stuff {
-  border-radius: 15px;
-  border-color: white;
-  border-style: outset;
-}
-
-/*Styling Timeline*/
-.vis-timeline {
-  border-radius: 15px;
-  border-color: white;
-  border-style: outset;
-  width: 100%;
-  border: 1.3px solid white;
-  border-width: thin;
-  border-bottom-width: thin;
-  border-top-width: thin;
-  background: white;
-  color: black;
-  font-size: 15px;
+.vis-panel.vis-bottom {
+  color: white;
 }
 
 .vis-item {
-  color: #fff;
-  background-color: black;
-  font-style:bold;
-  font-size: 18px;
-  border-color: black;
-  background: ff;
-  opacity: .75;
+  background-color: #373737;
 }
 
-.vis-selected {
-  color: black;
+.vis-time-axis .vis-text {
+  color: white;
 }
-/*Bootstrap overrides*/
-
-

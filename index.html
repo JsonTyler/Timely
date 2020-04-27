@@ -16,56 +16,60 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
 </head>
 
-<body class="my-bg-dark">
-  <header class="site-header">
-    <nav class="navbar navbar-expand border-bottom my-bg-dark border-light rounded-bottom fixed-top">
-      <div class="">
-        <a class="navbar-brand mr-4 text-white" href="https://www.jsonbytes.com">{ JsonBytes };</a>
-      </div>
-    </nav>
-  </header>
-  <main role="main" class="container-fluid my-bg-dark">
+<body>
+  <nav class="navbar navbar-expand rounded-bottom fixed-top text-white">
+    <a id="the-logo" class="navbar-brand" href="https://www.jsonbytes.com">{ JsonBytes };</a>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+          <a href="#questions" class="nav-link active" data-toggle="tab">Questions</a>
+      </li>
+      <li class="nav-item">
+          <a href="#timeline" class="nav-link" data-toggle="tab">Timeline</a>
+      </li>
+      <li class="nav-item">
+          <a href="#table" class="nav-link" data-toggle="tab">Table</a>
+      </li>
+    </ul>
+  </nav>
+  <aside>
+    <div id="the-buttons" class="position-fixed rounded-right">
+      <input type="button" class="tabular button btn btn-light btn-block" onclick="submitForm();window.location.reload();" id="loadStuff" value="Load"/>
+      
+      <input type="button" class="tabular button btn btn-light btn-block" id="save" value="Save"/>
     
-    <div class="row justify-content-center">
-      <div class="col-2">
-        <form id="the_stuff" class="table-light">
-          <div class="demo form-group mx-2 py-2" id="myForm" method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>        
-            <label for="caseNumber">Case Number</label>
-            <input class="form-control text-muted" type="text" name="caseNumber" id="caseNumber" />
-            <label for="collectedBy">Collected By</label>
-            <input class="form-control text-muted" type="text" name="collectedBy" id="collectedBy" />
-            <label for="itemDescription">Item Description</label>
-            <textarea form="the_stuff" style="width:100%;" placeholder="Drag bottom right hand corner to resize.." class="text-muted" name="itemDescription" id="itemDescription"></textarea>
-            <label for="locationFound">Location Found</label>
-            <input class="form-control text-muted" type="text" id="locationFound" />
-            <label for="contact">Phone Number</label>
-            <input class="form-control text-muted" type="text" name="contact" id="contact" />
-            <label for="timeRemoved">Date Removed</label>
-            <input class="form-control text-muted" type="date" name="timeRemoved" id="timeRemoved" />
-            <label for="timeReturned">Date Returned</label>
-            <input class="form-control text-muted" type="date" name="timeReturned" id="timeReturned" />    
-          </div>
-        </form>
-      </div>
-      <div class="col-10">
-        <div id="visualization">
+      <input type="button" class="tabular button btn btn-light btn-block" onclick="confirmDelete(); clearStorage();window.location.reload();" value="Reset"/>
+    </div>
+  </aside>
+  
+  <div class="the-container">
+    
+    
+    <div class="tab-content">
+        <div id="questions" class="tab-pane fade show active">
+          <form id="the-form" class="form-group rounded font-weight-bold">
+            <div method="POST" action="/files" onsubmit="event.preventDefault(); return loadData(this)" ;>        
+              <label for="caseNumber">Case Number</label>
+              <input class="form-control" type="text" name="caseNumber" id="caseNumber" />
+              <label for="collectedBy">Collected By</label>
+              <input class="form-control" type="text" name="collectedBy" id="collectedBy" />
+              <label for="itemDescription">Item Description</label>
+              <textarea form="the_stuff" style="width:100%;" placeholder="Drag bottom right hand corner to resize.." class="" name="itemDescription" id="itemDescription"></textarea>
+              <label for="locationFound">Location Found</label>
+              <input class="form-control" type="text" id="locationFound" />
+              <label for="contact">Phone Number</label>
+              <input class="form-control" type="text" name="contact" id="contact" />
+              <label for="timeRemoved">Date Removed</label>
+              <input class="form-control" type="date" name="timeRemoved" id="timeRemoved" />
+              <label for="timeReturned">Date Returned</label>
+              <input class="form-control" type="date" name="timeReturned" id="timeReturned" />    
+            </div>
+          </form>
         </div>
-        <div id="buttonStuff" class="row py-5 text-center">
-          <div class="col-3">
-            <input type="button" class="btn btn-light btn-lg" onclick="submitForm()" id="loadStuff" value="Load to table" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
-          </div>
-          <div class="col-3">
-            <input type="button" class="btn btn-light btn-lg" onclick="window.location.reload()" value="Populate the timeline" style="border: 2px solid black; padding: 10px; margin: 5px;" />
-          </div>
-          <div class="col-3">
-            <input type="button" class="btn btn-light btn-lg" id="save" value="Save tbl to file" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
-          </div>
-          <div class="col-3">
-            <input type="button" class="btn btn-light btn-lg" onclick="confirmDelete(); clearStorage();window.location.reload();" value="Reset all" style="border: 2px solid black; padding: 10px; margin: 5px;"/>
-          </div>
+        <div id="timeline" class="tab-pane fade">
+          <div id="visualization" class="text-center rounded"></div>
         </div>
-        <div id='result'>
-          <table class="table table-light table-striped table-condensed table-hover" id="myTable" style="border-collapse: unset;">
+        <div id="table" class="tab-pane fade rounded">
+          <table id="the-table" class="table table-light table-striped table-condensed table-hover">            
             <thead>
               <tr>
               <th> Case #: </th>
@@ -78,13 +82,10 @@
             </thead> 
             <tbody id="tableBody">
             </tbody>
-         </table>
-       </div>
-      </div>
+          </table>
+        </div>
     </div>
-  </main>
-
-    
+  </div>
 
   <script>
     function confirmDelete() {
