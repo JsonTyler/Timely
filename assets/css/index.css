@@ -103,6 +103,10 @@ input[type="text"], input[type="date"], textarea {
   right: 0;
 }
 
+#the-logo:hover {
+  color: #610E20;
+}
+
 .nav-link {
   border: 2px solid #373737;
   background-color: #f4f4f4;
