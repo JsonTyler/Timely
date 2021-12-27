@@ -3,7 +3,7 @@
 #### Name 
 Timely
 #### Purpose:
-Forensic tool for timeline creation to assist digital forensic teams in storing data 
+A digial forensic tool for timeline creation to assist digital forensic teams in storing data 
 #### Publication: [IEEE SoutheastCon 2019](https://ieeexplore.ieee.org/document/9020497)
 
 
